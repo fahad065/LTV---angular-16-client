@@ -1,0 +1,44 @@
+<div class="table-responsive mt-4">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Phone Number</th>
+          <th>Status</th>
+          <th>Message Count</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through the filteredNumbers -->
+        <tr *ngFor="let number of filteredNumbers; let i = index">
+          <td>{{ number.number }}</td>
+          <td>
+            <span
+              class="badge"
+              [class.bg-success]="number.status === 'active'"
+              [class.bg-secondary]="number.status === 'inactive'"
+            >
+              {{ number.status }}
+            </span>
+          </td>
+          <td>{{ number.messages }}</td>
+          <td>
+            <button
+              class="btn btn-sm"
+              [class.btn-success]="number.status === 'inactive'"
+              [class.btn-danger]="number.status === 'active'"
+              (click)="toggleStatus(i)"
+            >
+              {{ number.status === 'active' ? 'Deactivate' : 'Activate' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Display a message if no numbers match the filter -->
+    <p *ngIf="filteredNumbers.length === 0" class="text-center mt-4 text-muted">
+      No numbers found for the selected filter.
+    </p>
+  </div>
+  

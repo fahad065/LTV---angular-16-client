@@ -1,0 +1,11 @@
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Admin Dashboard</h1>
+
+  <!-- Filter Component -->
+  <app-filter (filterChanged)="onFilterChanged($event)"></app-filter>
+
+  <!-- Number List Component -->
+  <app-number-list [filterStatus]="selectedStatus"></app-number-list>
+  
+
+</div>

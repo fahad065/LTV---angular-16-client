@@ -1,0 +1,14 @@
+<div class="row mb-4">
+    <div class="col-md-4 offset-md-4">
+      <label for="statusFilter" class="form-label">Filter by Status:</label>
+      <select
+        id="statusFilter"
+        class="form-select"
+        [(ngModel)]="selectedStatus"
+        (change)="onStatusChange()"
+      >
+        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+      </select>
+    </div>
+  </div>
+  
